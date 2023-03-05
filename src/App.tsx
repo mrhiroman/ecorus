@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+
+import {Route, Routes} from 'react-router-dom'
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { EcoMarketLayout } from './components/EcoMarketLayout';
@@ -10,7 +12,10 @@ export const App = () => {
   return (
     <div className="App">
       <Header />
-      <EcoMarketLayout />
+      <Routes>
+        <Route path="/" element={<EcoMarketLayout />} />
+        <Route path="market" element={<EcoMarketLayout />} />
+      </Routes>
       <Footer />
       <LoginModal isVisible={isVisible} onModalClose={() => setVisible(false)}/>
     </div>
